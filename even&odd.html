@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+
+            function calculate(){
+                var n1 = parseInt(document.getElementById("num1").value);
+                var n2 = parseInt(document.getElementById("num2").value);
+                var ev = "even ";
+                var od = "odd ";
+                if(n1 % 2 == 0){
+                    document.getElementById("sh").innerHTML = ev;
+                }
+                else{
+                    document.getElementById("sh").innerHTML = od;
+                }
+                if(n2 % 2 == 0){
+                    document.getElementById("sh2").innerHTML = ev;
+                }
+                else{
+                    document.getElementById("sh2").innerHTML = od;
+                }
+                
+            }
+
+            function clearData(){
+                    document.getElementById('num1').value="";
+                    document.getElementById('num2').value="";
+                    document.getElementById('sh').innerHTML="";
+            }
+        </script>
+    </head>
+    <body>
+        <label>Enter Number1</label><br>
+        <input type="text" id="num1"><br>
+        <label>Enter Number2</label><br>
+        <input type="text" id="num2"><br>
+        <button type="submit" onclick="calculate()">Check</button><br>
+        <p id="sh"></p><br>
+        <p id="sh2"></p><br>
+        <button type="submit" onclick="clearData()">Reset</button>
+    </body>
+</html>
