@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+
+            function calculate(){
+                var n1 = parseInt(document.getElementById("num1").value);
+                var n2 = parseInt(document.getElementById("num2").value);
+                var res="not divided by 2 & 5.";
+                if(n1 % 5 == 0 && n1 % 2 == 0){
+                    document.getElementById("sh").innerHTML = n1;
+                }
+                else{
+                    document.getElementById("sh").innerHTML = res;
+                }
+                if(n2 % 5 == 0 && n2 % 2 == 0){
+                    document.getElementById("sh2").innerHTML = n2;
+                }
+                else{
+                    document.getElementById("sh2").innerHTML = res;
+                }
+                
+            }
+
+            function clearData(){
+                    document.getElementById('num1').value="";
+                    document.getElementById('num2').value="";
+                    document.getElementById('sh').innerHTML="";
+            }
+        </script>
+    </head>
+    <body>
+        <label>Enter Number1</label><br>
+        <input type="text" id="num1"><br>
+        <label>Enter Number2</label><br>
+        <input type="text" id="num2"><br>
+        <button type="submit" onclick="calculate()">Calculate</button><br>
+        <p id="sh"></p><br>
+        <p id="sh2"></p><br>
+        <button type="submit" onclick="clearData()">Reset</button>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>  
+            
+            function calculate(){
+                var num1 = parseInt(document.getElementById('num1').value);
+                var num2 = parseInt(document.getElementById('num2').value);
+                var operator = document.getElementById('op').value;
+                var result = 0;
+                
+                switch(operator){
+                case '+':
+                    result = num1 + num2;
+                    document.getElementById('show').innerHTML = result;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    document.getElementById('show').innerHTML = result;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    document.getElementById('show').innerHTML = result;
+                    break;
+                case '/':
+                    result = num1 / num2;
+                    document.getElementById('show').innerHTML = result;
+                    break;
+                }  
+            }
+
+            function clearData(){
+                    document.getElementById('num1').value = "";
+                    document.getElementById('num2').value = "";
+                    document.getElementById('op').value = "";
+                    document.getElementById('show').innerHTML = "";
+            }
+        </script>
+    </head>
+    <body>
+        <label>Enter Number1.</label><br>
+        <input type="text" id="num1"><br>
+        <label>Enter Number2.</label><br>
+        <input type="number" id="num2"><br>
+        <label>Enter operator + , - , * and /.</label><br>
+        <input type="text" id="op"><br>
+        <p id="show"></p><br>
+        <button onclick="calculate()">Calculate</button><br><br>
+        <button onclick="clearData()">Reset</button>
+    </body>
+</html>
