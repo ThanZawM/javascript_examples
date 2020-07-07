@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        var names = [];
+        function addName(){
+            var nam = document.getElementById('name').value;
+            var p = document.createElement('input');
+            p.value = nam;
+            document.body.appendChild(p);
+            document.body.appendChild(document.createElement("br"));
+            document.getElementById('name').value = "";
+        }  
+       
+    </script>
+</html>
+
+<body>
+
+    <label id="lbn">Task Name:</label><br>
+    <input type = "text" id = "name" placeholder="Enter Task Name.">
+    <button type="submit" onclick="addName()">Add</button><br>
+
+</body>
