@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+			function show(){
+
+				var t = document.getElementById('myTable');
+				var r = document.getElementsByName('gender');
+				var s = document.getElementsByName('subject');
+				var sub_arr = [];
+				var c1 = t.insertRow();
+				c1.insertCell(0).innerHTML = document.getElementById('name').value;
+
+				for ( var i=0; i<r.length; i++){
+					if(r[i].checked){
+						c1.insertCell(1).innerHTML = r[i].value;
+					}
+				}
+				console.log('ph no '+document.getElementById('phone').value);
+				c1.insertCell(2).innerHTML = document.getElementById('phone').value;
+				c1.insertCell(3).innerHTML = document.getElementById('email').value;
+
+				for ( var i=0; i<s.length; i++){
+					if(s[i].checked){
+						sub_arr.push(s[i].value);
+					}
+				}
+				c1.insertCell(4).innerHTML = sub_arr;
+				c1.insertCell(5).innerHTML = document.getElementById('address').value;
+
+			}
+		</script>
+		<style>
+			table{
+				border: 2px solid dodgerblue;
+				border-collapse: collapse;
+			}
+		</style>
+    </head>
+
+    <body>
+		<form>
+				<input type="text" id="name" placeholder="Name" style="margin-top:0px;"><br><br>
+				<input type="number" id="phone" placeholder="Phone"><br><br>
+				<input type="email" id="email" placeholder="Email"><br>
+			
+				<textarea id="address" placeholder="Address" style="margin-top: 20px;"></textarea><br><br>
+        
+				<input type="radio" name="gender" id="rdm" value="Male" checked="checked">Male
+				<input type="radio" name="gender" id="rdf" value="Female">Female<br><br>
+
+				<input type="checkbox" name="subject" value="Sub1" id="s1" checked="checked">Sub1
+				<input type="checkbox" name="subject" value="Sub2" id="s2">Sub2
+				<input type="checkbox" name="subject" value="Sub3" id="s3">Sub3
+				<input type="checkbox" name="subject" value="Sub4" id="s4">Sub4
+				<input type="checkbox" name="subject" value="Sub5" id="s5">Sub5
+				<br><br>
+				<input type="button" id="save" value="Save" onclick="show()">	
+		</form>
+		<br><br>
+
+		<table id="myTable" border="2">
+			<tr><th>Name</th><th>Gender</th><th>Phone</th><th>Email</th><th>Subject</th><th>Address</th></tr>
+			<tr><td>Than Zaw</td><td>Male</td><td>+959796450820</td><td>thanzaw4117@gmail.com</td><td>Sub1, Sub2</td>
+				<td>Yangon</td></tr>
+			
+		</table>
+        
+    </body>
+</html>
