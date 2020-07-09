@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function displayFullName() {
+            // Creating the XMLHttpRequest object
+            var request = new XMLHttpRequest();
+
+            // Instantiating the request object
+            request.open("GET", "https://jsonplaceholder.typicode.com/posts");
+
+            // Defining event listener for readystatechange event
+            request.onreadystatechange = function() {
+            // Check if the request is compete and was successful
+            if(this.readyState === 4 && this.status === 200) {
+            // Inserting the response from server into an HTML element
+                var obj = JSON.parse(this.responseText);
+                console.log(obj.length);
+                var noOfRow = "Number of Rows = " + obj.length;
+                document.getElementById("result").innerHTML = noOfRow;
+
+                var t = document.createElement("table");
+                t.style.tableLayout = "fixed";
+                t.setAttribute("border", 2);
+                t.setAttribute("id", "myTable");
+                document.body.appendChild(t);
+                var r1 = t.insertRow();
+                r1.insertCell().innerHTML = "userId";
+                r1.insertCell().innerHTML = "id";
+                r1.insertCell().innerHTML = "title";
+                r1.insertCell().innerHTML = "body";
+
+                for(var i=0; i<obj.length; i++){
+                    var newRow = t.insertRow();
+                    newRow.insertCell().innerHTML = obj[i].userId;
+                    newRow.insertCell().innerHTML = obj[i].id;
+                    newRow.insertCell().innerHTML = obj[i].title;
+                    newRow.insertCell().innerHTML = obj[i].body;
+                }
+                
+            }
+            };
+            // Sending the request to the server
+            request.send();
+            }
+        </script>
+    </head>
+    <body>
+        <div id="result">
+            <p>Content of the result DIV box will be replaced by the
+            server response</p>
+        </div>
+        <button type="button" onclick="displayFullName()">Display Full Name</button>
+        <table>
+
+        </table>
+    </body>
+</html>
